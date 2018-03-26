@@ -1,0 +1,16 @@
+import pymysql
+#输入数据
+conn = pymysql.connect(host='192.168.3.xxx', port=3306, user='xxx', passwd='xxx', db='xxx', charset='utf8')
+cursor = conn.cursor()
+cursor.execute('select SID,TITLE from xxx WHERE xx IS NULL')
+
+SID_T = [] #存放SID
+TITLE_T = [] #存放TITLE
+for i in cursor:
+    SID = i[0]
+    TITLE = i[1]
+    SID_T.append(SID)
+    TITLE_T.append(TITLE)
+    
+#断开数据库的连接'''
+cursor.close()
